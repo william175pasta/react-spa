@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from "react-dom";
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
-import FoodPractices from '../../components/Content/FoodPractices'
+import FoodPractices from '../../components/Content/AboutComponents/FoodPractices'
 import { makeStyles } from '@material-ui/core/styles';
 
 import logo1 from '../../img/sauce/red/redlogo.png'
@@ -23,12 +23,10 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 import RestaurantIcon from '@material-ui/icons/Restaurant';
-import ImageCarousel from './ImageCarousel'
+import ImageCarouselTwo from '../../components/Content/AboutComponents/ImageCarouselTwo'
 import { NavLink } from "react-router-dom";
 
-
 const user = {
-    logo: [logo1, logo2, logo3],
     sauce: [
         {
             title: "TomatoSauce",
@@ -43,20 +41,14 @@ const user = {
             desc: "白醬-Recipe:"
         }
     ],
-    title: ["About-Sauce", "ABOUT/作品"]
+    title: ["About/Sauce", "ABOUT/作品"]
 }
 
-const useStyles = makeStyles(them => ({
-    content_P: {
-        padding: '30px'
-    }
-}))
 
 const AboutPage = (props) => {
-    const classes = useStyles();
+    const [isOpen, setOpenStatus] = useState(false)
 
     return (
-
         <div>
             <Header />
             <React.Fragment>
@@ -87,7 +79,7 @@ const AboutPage = (props) => {
                                                 </CardActionArea>
                                             </NavLink>
                                             <CardActions >
-                                                <FoodPractices name={user.sauce[0].title} />
+                                                <FoodPractices setOpenStatus={setOpenStatus} name={user.sauce[0].title} />
                                             </CardActions>
                                         </Card>
                                     </Grid>
@@ -136,7 +128,11 @@ const AboutPage = (props) => {
                                     <Grid item xs={12} >
                                         <h2>{user.title[1]}</h2>
                                     </Grid>
-                                    <ImageCarousel />
+                                    <div>
+                                        <p>{isOpen ? 666 : 999}</p>
+                                    </div>
+                                    <ImageCarouselTwo />
+
                                 </Grid>
                             </div >
                         </Typography>
@@ -147,5 +143,7 @@ const AboutPage = (props) => {
         </div >
     );
 };
+
+
 
 export default AboutPage;
