@@ -10,15 +10,15 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
 
-import FoodMaterial from '../../components/Content/FoodMaterial'
-import Modal from '../../components/Content/Modal'
+import WorksPopover from '../../components/Content/WorksPageComponents/worksPopover'
+import Modal from '../../components/Content/WorksPageComponents/Modal'
 
 import logo1 from '../../img/logo/001.jpg';
 import logo2 from '../../img/logo/002.jpg';
@@ -26,23 +26,25 @@ import logo3 from '../../img/logo/003.jpg';
 import CallOutlinedIcon from '@material-ui/icons/CallOutlined';
 
 
+
 const user = {
     works: [
         { name: 'JustItalian義饗食堂', phone: '02-7735-5077', time: '2017/02-2017/06', title: 'CommisB' },
-        { name: '175pasta', phone: '02-2620-2582', time: '2013/05-2017/03', title: 'CommisA' },
+        { name: '175pasta', phone: '02-2620-6682', time: '2013/05-2017/03', title: 'CommisA' },
         { name: 'Lapasta意麵屋', phone: '02-2872-1738 ', time: '2017/07-2019/12', title: 'CommisA' },
     ],
     title: ["Company", "WorkExperience"],
 }
 const woksInformation = {
     address: [" Address : 106台北市大安區羅斯福路四段83號2樓 ", " Address : 106台北市大安區羅斯福路四段83號2樓 ", "Address:xoxoxo"],
-    tell: [' Cell : 02-7735-5077', ' Cell：02-8888-5077', " Cell： 02-666-777"],
+    time: [' 營業時間 : 12:00–14:30 , 18:00–21:30 ', ' 營業時間 : 11:30–14:00 , 17:00–21:00 '],
     title: ['分店資訊:'],
     branch1: ['天母店. Address : 台北市士林區天母東路102號. cell: 02-28721738'],
     branch2: ['南西店. Address : 台北市大同區南京西路25巷4-3號. cell: 02-27920208'],
     branch3: ['內湖店. Address : 台北市內湖區瑞光路104號. cell: 02-27920208']
     // othersBranch: `Hello ${woksInformation.Branc1} and`
 }
+
 
 const WorksPage = () => {
 
@@ -61,7 +63,9 @@ const WorksPage = () => {
                                         <Grid container spacing={3} className="cards">
                                             <Grid item xs={12} >
                                                 <h2>{user.title[0]}</h2>
+
                                             </Grid>
+
                                             <Grid item xs={12} sm={4} className="cardsContent" >
                                                 <Card className="cardsContent">
                                                     <CardActionArea>
@@ -78,9 +82,9 @@ const WorksPage = () => {
                                                     </CardActionArea>
                                                     <CardActions>
                                                         <Button size="small" variant="contained"  >
-                                                            <a href="https://www.facebook.com/175Pasta" target="_blank" > Link</a>
+                                                            <a href="https://www.regenthotels.com/tw/regent-taipei/dining/outside-dining/just-italian" target="_blank" > Link</a>
                                                         </Button>
-                                                        <FoodMaterial address={woksInformation.address[0]} tell={woksInformation.tell[0]} />
+                                                        <WorksPopover address={woksInformation.address[0]} tell={woksInformation.time[0]} />
                                                     </CardActions>
                                                 </Card>
                                             </Grid>
@@ -100,9 +104,9 @@ const WorksPage = () => {
                                                     </CardActionArea>
                                                     <CardActions>
                                                         <Button size="small" variant="contained"  >
-                                                            <a href="https://www.regenthotels.com/tw/regent-taipei/dining/outside-dining/just-italian" target="_blank" > Link</a>
+                                                            <a href="https://www.facebook.com/175Pasta" target="_blank" > Link</a>
                                                         </Button>
-                                                        <FoodMaterial address={woksInformation.address[1]} tell={woksInformation.tell[1]} />
+                                                        <WorksPopover address={woksInformation.address[1]} tell={woksInformation.time[1]} />
                                                     </CardActions>
                                                 </Card>
                                             </Grid>
@@ -149,6 +153,7 @@ const WorksPage = () => {
                                                     )
                                                 })
                                             }
+
                                         </Grid>
                                     </div >
                                 </Typography>

@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Content from '../../components/Content/Content';
+import HomeContent from '../../components/Content/HomeConponents/HomeContent';
 
 const HomePage = (props) => {
     return (
         <div>
             <Header />
-            <Content />
+            <HomeContent />
             <Footer />
         </div>
     );
