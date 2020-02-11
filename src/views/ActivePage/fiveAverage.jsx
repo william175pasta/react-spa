@@ -1,47 +1,65 @@
-import React, { useState, } from "react";
+import React, { useState, useContext } from "react";
 
-import * as ReactDOM from 'react-dom';
-
+let totalList = [];
+let num = 0;
+let result = 0
 
 const FiveAverage = () => {
-
-
-
-    const [oneday, setoneday] = useState(0)
+    const [currentValue, setCurrentValueHanle] = useState('');
+    const [total, setSumHandle] = useState(0);
+    const [oneday, setoneday] = useState(0);
     const [twoday, settwoday] = useState(0)
     const [threeday, setthreeday] = useState(0)
     const [fourday, setfourday] = useState(0)
     const [fiveday, setfiveday] = useState(0)
-
     const [values, setvalues] = useState([])
-
     const [avg, setavg] = useState(0)
 
 
     const numberChangehandler1 = (e) => {
-        setoneday(e.target.value)
-        console.log("oneday: " + oneday)
+        switch (e.target.id) {
+            case "1":
+                setoneday(e.target.value);
+                break;
+            case "2":
+                settwoday(e.target.value);
+                break;
+            case "3":
+                setthreeday(e.target.value);
+                break;
+            case "4":
+                setfourday(e.target.value);
+                break;
+            case "5":
+                setfiveday(e.target.value);
+                break;
+        }
+        console.log("oneday: " + e.target.id)
     }
-    const numberChangehandler2 = (e) => {
-        settwoday(e.target.value)
-        console.log("twoday: " + twoday)
 
-    }
-    const numberChangehandler3 = (e) => {
-        setthreeday(e.target.value)
-        console.log("threeday: " + threeday)
+    // 輸入當前值
+    const onChnageHandle = (e) => {
+        setCurrentValueHanle(e.target.value);
+    };
 
-    }
-    const numberChangehandler4 = (e) => {
-        setfourday(e.target.value)
-        console.log("fourday: " + fourday)
+    // 點擊按鈕開始計算累加處裡
+    const onClickHandle = () => {
+        let value = parseFloat(currentValue);
+        console.log(currentValue)
+        console.log(typeof (value))
 
-    }
-    const numberChangehandler5 = (e) => {
-        setfiveday(e.target.value)
-        console.log("fiveday: " + fiveday)
-
-    }
+        if (value) {
+            totalList.push(value);
+            if (totalList.length >= 0 && totalList.length < 6) {
+                num += totalList[totalList.length - 1];
+                result = (num / totalList.length).toFixed(2)
+                setSumHandle(result);
+            }
+            setCurrentValueHanle('');
+        } else {
+            alert('已輸入五筆了');
+        }
+    };
 
 
     const AverageBTN = () => {
@@ -69,21 +87,33 @@ const FiveAverage = () => {
             console.log(values)
             setavg(avgnumber)
         }
-
-
     }
 
-
+    const AverageClearBTN = () => {
+        setoneday(0)
+        settwoday(0)
+        setthreeday(0)
+        setfourday(0)
+        setfiveday(0)
+        setavg(0)
+    }
     return (
         <div>
+            <h3>**5日平均線計算</h3>
 
-            <input type="text" value={oneday} onChange={numberChangehandler1} />
-            <input type="text" value={twoday} onChange={numberChangehandler2} />
-            <input type="text" value={threeday} onChange={numberChangehandler3} />
-            <input type="text" value={fourday} onChange={numberChangehandler4} />
-            <input type="text" value={fiveday} onChange={numberChangehandler5} />
+            <span>5MA顯示: {total} </span>
+            <input type="text" placeholder="請輸入數字sun" value={currentValue} onChange={onChnageHandle} />
+            <button onClick={onClickHandle}>計算</button>
+            <br />
+            <hr />
+            <input type="text" placeholder="請輸入第1筆數" id="1" onChange={numberChangehandler1} />
+            <input type="text" placeholder="請輸入第2筆數" id="2" onChange={numberChangehandler1} />
+            <input type="text" placeholder="請輸入第3筆數" id="3" onChange={numberChangehandler1} />
+            <input type="text" placeholder="請輸入第4筆數" id="4" onChange={numberChangehandler1} />
+            <input type="text" placeholder="請輸入第5筆數" id="5" onChange={numberChangehandler1} />
 
             <button onClick={AverageBTN}> 計算5MA</button>
+            <button onClick={AverageClearBTN}> Clear</button>
 
             <h2>{`5MA : ${avg}`}</h2>
         </div>
