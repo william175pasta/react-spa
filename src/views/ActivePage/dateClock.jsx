@@ -1,5 +1,4 @@
 import React from 'react';
-
 class DateClock extends React.Component {
     constructor(props) {
         super(props)
@@ -9,7 +8,6 @@ class DateClock extends React.Component {
     }
     componentDidMount() {
         this.interval = setInterval(this.timer_plus.bind(this), 1000)
-        console.log(999)
     }
 
     timer_plus() {
@@ -29,7 +27,6 @@ class DateClock extends React.Component {
         this.setState({ now: nowtime })
     }
 
-
     openTools() {
         if (this.interval) {
             clearInterval(this.interval)
@@ -41,6 +38,7 @@ class DateClock extends React.Component {
     render = () => {
         return (
             <div>
+                <h3>**時鐘測試</h3>
                 <h1>台灣時間:{this.state.now}</h1>
                 <button onClick={this.openTools.bind(this)}>暫停</button>
             </div>
