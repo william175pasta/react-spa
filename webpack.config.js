@@ -1,24 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 	template: `${__dirname}/src/index.html`,
 	filename: 'index.html',
 	inject: 'body',
 });
-
-
-
-
 module.exports = {
 	// 檔案起始點從 entry 進入，因為是陣列所以也可以是多個檔案
 	// entry: [
 	// 	'./src/app.jsx',
 	// ],
+
+	//2020/01/22
 	entry: {
 		'App': './src/app.jsx'
 	},
+	//2020/01/22
 
+	// entry: {
+	// 	'App': './src/main.js'
+	// },
 
 	// output 是放入產生出來的結果的相關參數
 	output: {
@@ -31,11 +32,7 @@ module.exports = {
 		modules: [
 			'node_modules', // 先找这个
 			path.resolve(__dirname, 'src/img'), // node_modules没有再找这个
-
 		]
-
-
-
 	},
 	mode: "development",
 	module: {
