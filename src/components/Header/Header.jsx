@@ -7,11 +7,16 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import img from '../../img/header/pasta.jpeg';
 
-import img from '../../contents/imagess/header/pasta.jpeg';
-
-
-
+const apple = {
+	size: 10,
+	name: 60,
+	age: 55
+}
+let arry;
+arry = _.keys(apple)
+console.log("arry : ", arry)
 
 const a11yProps = (index) => {
 	return {
@@ -19,20 +24,17 @@ const a11yProps = (index) => {
 		'aria-controls': `simple-tabpanel-${index}`,
 	};
 };
-
-const hideNavLink = {
-	display: "none"
-};
-
 export const routesData = [
 	{ label: 'Home', path: '/' },
-	{ label: 'About', path: '/about' },
-	{ label: 'WorksPage', path: '/WorksPage' },
-	{ label: 'SauceAll', path: '/SauceAll' },
+	{ label: 'About', path: '/About' },
+	{ label: 'WorksPage', path: '/Works' },
+	{ label: 'Active', path: '/Active' },
 
 ];
 
+
 const Header = (props) => {
+
 	const [value, setValue] = React.useState(0);
 	const history = useHistory();
 	const handleChange = (event, newValue) => {
@@ -41,7 +43,6 @@ const Header = (props) => {
 		history.push(route.path);
 	};
 	return (
-
 		<header>
 			<img src={img} style={{ width: '100%' }} />
 			<AppBar position="static">
