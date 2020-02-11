@@ -7,9 +7,9 @@ import AboutPage from './views/AboutPage';
 import ActivePage from './views/ActivePage';
 import WorksPage from './views/WorksPage';
 
-import TableForBacil from './views/AboutmethodPage/TableForBacil'
-import TableForCream from './views/AboutmethodPage/TableForCream'
-import TableForTomato from './views/AboutmethodPage/TableForTomato'
+import TableForBacil from './components/Content/AboutComponents/TableForBacil'
+import TableForCream from './components/Content/AboutComponents/TableForCream'
+import TableForTomato from './components/Content/AboutComponents/TableForTomato'
 
 
 import { HashRouter, Link } from "react-router-dom"
@@ -19,10 +19,10 @@ const App = (props) => {
         <HashRouter>
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/about" component={AboutPage} />
-                <Route path="/WorksPage" component={WorksPage} />
-                <Route path="/SauceAll" component={ActivePage} />
-                {/* <Route path="/method" component={AboutmethodPage} /> */}
+                <Route path="/About" component={AboutPage} />
+                <Route path="/Works" component={WorksPage} />
+                <Route path="/Active" component={ActivePage} />
+
 
                 <Route path="/TableForBacil" component={TableForBacil} />
                 <Route path="/TableForCream" component={TableForCream} />
