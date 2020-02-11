@@ -9,35 +9,6 @@ class ProgTest extends React.Component {
         }
         console.log("Test1 :constructor ")
     }
-    // componentDidMount = () => {
-    //     console.log('Test1 :componentDidMount ')
-    // }
-    // componentWillUnmount = () => {
-    //     console.log('Test1 :componentWillUnmount')
-    // }
-
-
-    // static getDerivedStateFromProps = (props, state) => {
-    //     console.log('Test1 :getDerivedStateFromProps')
-    //     return null
-    // }
-
-
-    // shouldComponentUpdate = (nextProps, nextState) => {
-    //     console.log('Test1 :shouldComponentUpdate')
-
-    //     return true
-    // }
-
-    // getSnapshotBeforeUpdate = (prevProps, prevState) => {
-    //     console.log('Test1 :getSnapshotBeforeUpdate')
-    //     return 1
-
-    // }
-    // componentDidUpdate = (prevProps, prevState, snapshot) => {
-    //     console.log('Test1 :componentDidUpdate')
-    //     console.log(snapshot)
-    // }
 
     plusCount = () => {
         const count = this.state.count

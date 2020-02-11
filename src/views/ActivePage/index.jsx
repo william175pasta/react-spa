@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
@@ -12,15 +12,20 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 
 import ShoppingCart from './shoppingcart'
 import ProgTest from './progTest'
 import FiveAverage from './fiveAverage'
 import DateClock from './dateClock';
+import TestUseState from '../../components/Content/ActiveComponents/hooksTest1'
+import TestUseContext from '../../components/Content/ActiveComponents/hooksTest2'
+import TestUseReducer from '../../components/Content/ActiveComponents/hooksUseReducer'
+import HooksUseEffectTwo from '../../components/Content/ActiveComponents/hooksUseEffectTwo'
+import GameMerge from '../../components/Content/ActiveComponents/gameMerge'
+import ImageCarouselTwo from '../../components/Content/AboutComponents/ImageCarouselTwo'
+
+
+export const AppContext = React.createContext({});
 
 const useStyles = makeStyles(them => ({
     a: {
@@ -30,91 +35,76 @@ const useStyles = makeStyles(them => ({
         height: '30px',
         textAlign: 'center',
         backgroundColor: '#f87',
-
     },
     size: {
         display: 'flex',
         justifyContent: 'space-around',
     }
-
 }))
-
 
 const ActivePage = (props) => {
     const classes = useStyles();
 
-    const [count, setcount] = useState(0)
-    const [name, setname] = useState("")
-    const [number, setnumber] = useState("")
-    const [gender, setgender] = useState("")
-    const [outputfile, setoutputfile] = useState("")
-    const [open, setopen] = useState(true)
-    const [openText, setopenText] = useState("")
-
-    const onChangename = (event) => {
-        let value = event.target.value;
-        console.log(value);
-        setname(value);
-    }
-    const onChangenumber = (event) => {
-        let value = event.target.value;
-        console.log(value);
-        setnumber(value);
-    }
-    const onChangegender = (event) => {
-        let value = event.target.value;
-        console.log(value);
-        setgender(value);
-    }
-    const onClickEvent = () => {
-        if (open) {
-            setopenText("開啟")
-            setopen(false)
-        } else {
-            setopenText("關閉")
-            setopen(true)
-        }
-    }
-
-
-
-    const onClickCountEvent = () => {
-        setcount(count + 1)
-    }
-    const onClickTextEvent = () => {
-        setoutputfile(`姓名:${name} ,電話:${number} ,性別:${gender}`)
-    }
-    const ClearTextEvent = () => {
-        setoutputfile("")
-    }
-
     return (
-        <div>
+        <div >
             <Header />
             <React.Fragment>
                 <CssBaseline />
                 <Container maxWidth="lg">
+                    {/* <Componentimages /> */}
                     <Paper>
-                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
-
+                        <Typography component="div" style={{ backgroundColor: '	#ADD8E6', }}>
                             <DateClock />
-
                             <ShoppingCart />
-
                         </Typography>
                     </Paper>
-                    <Paper>
-                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
 
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '	#B0C4DE', }}>
                             <ProgTest />
+                        </Typography>
+                    </Paper>
 
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '#87CEFA', }}>
+                            <FiveAverage />
+                        </Typography>
+                    </Paper>
+
+
+
+
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                            <TestUseReducer />
                         </Typography>
                     </Paper>
                     <Paper>
                         <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                            <HooksUseEffectTwo />
+                        </Typography>
+                    </Paper>
 
-                            <FiveAverage />
-
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '#AFEEEE', }}>
+                            <AppContext.Provider value={{
+                                myName: 'Bill',
+                                myFriendName: 'Jerry',
+                                titleName: ['FirstTest', 'SecondTest', 'ThirdTest']
+                            }}>
+                                <TestUseState />
+                                <TestUseContext />
+                            </AppContext.Provider>
+                        </Typography>
+                    </Paper>
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '#fff', }}>
+                            < GameMerge />
+                        </Typography>
+                    </Paper>
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '#fff', }}>
+                            <ImageCarouselTwo />
                         </Typography>
                     </Paper>
                 </Container>
@@ -123,5 +113,4 @@ const ActivePage = (props) => {
         </div >
     );
 };
-
-export default ActivePage;
+export default ActivePage; 
