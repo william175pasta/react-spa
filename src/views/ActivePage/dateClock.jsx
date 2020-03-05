@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+
 class DateClock extends React.Component {
     constructor(props) {
         super(props)
@@ -37,10 +39,11 @@ class DateClock extends React.Component {
     }
     render = () => {
         return (
-            <div>
-                <h3>**時鐘測試</h3>
+            <div style={{ padding: '20px', textAlign: 'center' }}>
                 <h1>台灣時間:{this.state.now}</h1>
-                <button onClick={this.openTools.bind(this)}>暫停</button>
+                <Button onClick={this.openTools.bind(this)} variant="outlined" color="secondary">
+                    時間-暫停開關
+                </Button>
             </div>
         )
     }
