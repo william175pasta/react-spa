@@ -187,7 +187,7 @@ const GameMerge = () => {
     }
 
     return (
-        <div style={{ fontFamily: '微軟正黑體' }}>
+        <div style={{ fontFamily: '微軟正黑體', padding: '50px 0 ' }}>
             <div className={classes.root}>
                 <Button variant="outline-dark" onClick={shearsBTN}>
                     <FontAwesomeIcon icon={faHandPeace} size="6x" />
