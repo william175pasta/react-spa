@@ -17,15 +17,44 @@ import Grid from '@material-ui/core/Grid';
 const imgesAll = {
     array: [Tomato1, Tomato2, Tomato3, Cream1, Cream2, Cream3, Basil1, Basil2, Olive1, Olive2]
 }
+
+const SampleNextArrow = (props) => {
+    const { className, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ display: "block", background: "#bbb", borderRadius: '100%' }}
+            onClick={onClick}
+        />
+    );
+}
+const SamplePrevArrow = (props) => {
+    const { className, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ display: "block", background: "#bbb", borderRadius: '100%' }}
+            onClick={onClick}
+        />
+    );
+}
+const settings = {
+    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow />,
+
+};
+
+
 class ImageCarousel extends React.Component {
     render() {
         return (
             <Fragment>
                 <Grid item xs={12} >
-                    <div style={{ padding: '20px', background: '#ccc' }}>
+                    <div style={{ padding: '5px 20px', background: '#ddd' }}>
                         <Slider autoplay={true}  //自動播放
                             autoplaySpeed={2000} //播放速度
-                            slidesToShow={3} //一次show幾張圖
+                            slidesToShow={3}//一次show幾張圖
+                            {...settings}
                         >
                             {
                                 imgesAll.array.map((item, index) => {

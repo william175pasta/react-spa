@@ -20,10 +20,14 @@ const ImageCarouselTwo = () => {
     return (
         <Fragment>
             <Grid item xs={12} >
-                <div style={{ padding: '20px', background: '#ccc' }}>
+                <div style={{ padding: '10px', background: '#ccc', }}>
                     <Slider autoplay={true}  //自動播放
                         autoplaySpeed={2000} //播放速度
                         slidesToShow={2} //一次show幾張圖
+
+
+
+
                     >
                         {
                             imagesArray.map((item, index) => {
