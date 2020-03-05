@@ -46,7 +46,6 @@ const user = {
 
 
 const AboutPage = (props) => {
-    const [isOpen, setOpenStatus] = useState(false)
 
     return (
         <div>
@@ -55,7 +54,7 @@ const AboutPage = (props) => {
                 <CssBaseline />
                 <Container maxWidth="lg">
                     <Paper>
-                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                        <Typography component="div" style={{ backgroundColor: '#eee', padding: '10px' }}>
                             <div >
                                 <Grid container spacing={3} className="cards">
                                     <Grid item xs={12} >
@@ -79,7 +78,7 @@ const AboutPage = (props) => {
                                                 </CardActionArea>
                                             </NavLink>
                                             <CardActions >
-                                                <FoodPractices setOpenStatus={setOpenStatus} name={user.sauce[0].title} />
+                                                <FoodPractices name={user.sauce[0].title} />
                                             </CardActions>
                                         </Card>
                                     </Grid>
@@ -128,11 +127,7 @@ const AboutPage = (props) => {
                                     <Grid item xs={12} >
                                         <h2>{user.title[1]}</h2>
                                     </Grid>
-                                    <div>
-                                        <p>{isOpen ? 666 : 999}</p>
-                                    </div>
                                     <ImageCarouselTwo />
-
                                 </Grid>
                             </div >
                         </Typography>

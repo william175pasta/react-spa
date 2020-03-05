@@ -22,7 +22,7 @@ import TestUseContext from '../../components/Content/ActiveComponents/hooksTest2
 import TestUseReducer from '../../components/Content/ActiveComponents/hooksUseReducer'
 import HooksUseEffectTwo from '../../components/Content/ActiveComponents/hooksUseEffectTwo'
 import GameMerge from '../../components/Content/ActiveComponents/gameMerge'
-import ImageCarouselTwo from '../../components/Content/AboutComponents/ImageCarouselTwo'
+import ImageCarousel from '../../components/Content/AboutComponents/ImageCarousel'
 
 
 export const AppContext = React.createContext({});
@@ -53,38 +53,30 @@ const ActivePage = (props) => {
                 <Container maxWidth="lg">
                     {/* <Componentimages /> */}
                     <Paper>
-                        <Typography component="div" style={{ backgroundColor: '	#ADD8E6', }}>
+                        <Typography component="div" style={{ backgroundColor: '#eee' }}>
                             <DateClock />
                             <ShoppingCart />
                         </Typography>
                     </Paper>
-
+                    {/* 
                     <Paper>
                         <Typography component="div" style={{ backgroundColor: '	#B0C4DE', }}>
                             <ProgTest />
                         </Typography>
-                    </Paper>
+                    </Paper> */}
 
-                    <Paper>
+                    {/* <Paper>
                         <Typography component="div" style={{ backgroundColor: '#87CEFA', }}>
                             <FiveAverage />
                         </Typography>
                     </Paper>
-
-
-
-
-                    <Paper>
+ */}
+                    {/* <Paper>
                         <Typography component="div" style={{ backgroundColor: '#eee', }}>
                             <TestUseReducer />
                         </Typography>
-                    </Paper>
-                    <Paper>
-                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
-                            <HooksUseEffectTwo />
-                        </Typography>
-                    </Paper>
-
+                    </Paper> */}
+                    {/* 
                     <Paper>
                         <Typography component="div" style={{ backgroundColor: '#AFEEEE', }}>
                             <AppContext.Provider value={{
@@ -96,15 +88,21 @@ const ActivePage = (props) => {
                                 <TestUseContext />
                             </AppContext.Provider>
                         </Typography>
+                    </Paper> */}
+                    <Paper>
+                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                            <HooksUseEffectTwo />
+                        </Typography>
                     </Paper>
                     <Paper>
                         <Typography component="div" style={{ backgroundColor: '#fff', }}>
                             < GameMerge />
                         </Typography>
                     </Paper>
+
                     <Paper>
                         <Typography component="div" style={{ backgroundColor: '#fff', }}>
-                            <ImageCarouselTwo />
+                            <ImageCarousel />
                         </Typography>
                     </Paper>
                 </Container>

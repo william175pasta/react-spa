@@ -39,9 +39,9 @@ const woksInformation = {
     address: [" Address : 106台北市大安區羅斯福路四段83號2樓 ", " Address : 106台北市大安區羅斯福路四段83號2樓 ", "Address:xoxoxo"],
     time: [' 營業時間 : 12:00–14:30 , 18:00–21:30 ', ' 營業時間 : 11:30–14:00 , 17:00–21:00 '],
     title: ['分店資訊:'],
-    branch1: ['天母店. Address : 台北市士林區天母東路102號. cell: 02-28721738'],
-    branch2: ['南西店. Address : 台北市大同區南京西路25巷4-3號. cell: 02-27920208'],
-    branch3: ['內湖店. Address : 台北市內湖區瑞光路104號. cell: 02-27920208']
+    branch1: ['【天母店】Address : 台北市士林區天母東路102號. cell: 02-28721738'],
+    branch2: ['【南西店】Address : 台北市大同區南京西路25巷4-3號. cell: 02-27920208'],
+    branch3: ['【內湖店】Address : 台北市內湖區瑞光路104號. cell: 02-27920208']
     // othersBranch: `Hello ${woksInformation.Branc1} and`
 }
 
@@ -58,7 +58,8 @@ const WorksPage = () => {
                         <CssBaseline />
                         <Container maxWidth="lg">
                             <Paper>
-                                <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                                <Typography component="div" style={{ backgroundColor: '#eee', padding: '10px' }}>
+
                                     <div >
                                         <Grid container spacing={3} className="cards">
                                             <Grid item xs={12} >
