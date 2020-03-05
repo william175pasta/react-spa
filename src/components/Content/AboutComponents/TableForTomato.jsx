@@ -17,7 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-
+import Button from '@material-ui/core/Button';
 const persnoal = {
 
     title: ["TomatoSauce-蕃茄紅醬", "CreamSauce-奶油白醬", "BasilSauce-羅勒青醬"]
@@ -134,8 +134,8 @@ const TableForTomato = (props) => {
             <React.Fragment>
                 <CssBaseline />
                 <Container maxWidth="lg">
-                    <Paper>
-                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                    <Paper >
+                        <Typography component="div" style={{ backgroundColor: '#eee', padding: '10px' }}>
 
                             <Grid container spacing={3} className="cards">
 
@@ -149,7 +149,7 @@ const TableForTomato = (props) => {
                                     <Table style={{ width: '280' }} aria-label="customized table">
                                         <TableHead>
                                             <TableRow>
-                                                <StyledTableCell>麵糊（Roux）</StyledTableCell>
+                                                <StyledTableCell>爆香料（Spice）</StyledTableCell>
                                                 <StyledTableCell align="right">份量(g)</StyledTableCell>
                                             </TableRow>
                                         </TableHead>
@@ -168,7 +168,7 @@ const TableForTomato = (props) => {
                                     <Table style={{ width: '280' }} aria-label="customized table">
                                         <TableHead>
                                             <TableRow>
-                                                <StyledTableCell>乳製品(Dairy products)</StyledTableCell>
+                                                <StyledTableCell>塊狀原料(Lump material)</StyledTableCell>
                                                 <StyledTableCell align="right">份量(g)</StyledTableCell>
                                             </TableRow>
                                         </TableHead>
@@ -208,20 +208,28 @@ const TableForTomato = (props) => {
                                         <ExpansionPanelSummary aria-controls="panel1d-content" id="panel1d-header">
                                             <Typography>
 
-                                                <span style={{ color: 'red' }}>Cream Sauce作法 : </span>
+                                                <span style={{ color: 'red', fontSize: '16px' }}>TomatoSauce作法 : </span>
                                                 <TouchAppOutlinedIcon color="disabled" />
                                             </Typography>
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
                                             <Typography>
-                                                <li>  取大鍋，將爆香料內食材炒至焦黃。</li>
-                                                <li>  將塊狀食材加入大鍋中。</li>
-                                                <li> 煮開後加入所有調味粉，充分攪拌。</li>
-                                                <li>小滾五分鐘後關火，加入勾芡水，再次開火煮滾即可。</li>
+                                                <span style={{ fontSize: '16px', fontWeight: 'bold', letterSpacing: '2px', fontStyle: 'italic' }}>
 
+                                                    <li>Take a large pot and fry the ingredients inside the spice until browned.</li>
+                                                    <li>Add chunky ingredients to a large saucepan.</li>
+                                                    <li>Add all seasoning powder after boiling and stir well.</li>
+                                                    <li>Turn off the heat for five minutes, add the thickened water, and cook again.</li>
+
+                                                </span>
                                             </Typography>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
+                                </Grid>
+                                <Grid item xs={12} sm={12} style={{ textAlign: 'center' }} >
+                                    <Button variant="contained" href="#About" style={{ padding: '10px', margin: '10px' }}>
+                                        BACK
+                                    </Button>
                                 </Grid>
                             </Grid>
                         </Typography>

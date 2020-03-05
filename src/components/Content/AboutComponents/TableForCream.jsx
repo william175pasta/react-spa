@@ -17,6 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 
 const persnoal = {
     title: ["TomatoSauce-蕃茄紅醬", "CreamSauce-奶油白醬", "BasilSauce-羅勒青醬"]
@@ -125,7 +126,7 @@ const TableForCream = (props) => {
                 <CssBaseline />
                 <Container maxWidth="lg">
                     <Paper>
-                        <Typography component="div" style={{ backgroundColor: '#eee', }}>
+                        <Typography component="div" style={{ backgroundColor: '#eee', padding: '10px' }}>
 
                             <Grid container spacing={3} className="cards">
 
@@ -197,22 +198,26 @@ const TableForCream = (props) => {
                                     <ExpansionPanel square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                                         <ExpansionPanelSummary aria-controls="panel1d-content" id="panel1d-header">
                                             <Typography>
-
-                                                <span style={{ color: 'red' }}>Cream Sauce作法 : </span>
+                                                <span style={{ color: '	#007799', fontSize: '16px' }}>Cream Sauce作法 : </span>
                                                 <TouchAppOutlinedIcon color="disabled" />
                                             </Typography>
                                         </ExpansionPanelSummary>
-                                        <ExpansionPanelDetails>
+                                        <ExpansionPanelDetails >
                                             <Typography>
-
-                                                <li>開小火，奶油放入鍋子中溶解。</li>
-                                                <li>加入麵粉及調味料拌炒，直到出現餅乾的香味。</li>
-                                                <li>緩緩倒入鮮奶，利用打蛋器攪拌比較不容易結塊。</li>
-                                                <li>鮮奶油全部倒入，不停攪拌直快沸騰時加入起司絲。</li>
-
+                                                <span style={{ fontSize: '16px', fontWeight: 'bold', letterSpacing: '2px', fontStyle: 'italic' }}>
+                                                    <li >Turn on low heat and dissolve the cream in a pan.</li>
+                                                    <li>Add flour and seasoning and stir-fry until the aroma of the cookies appears.</li>
+                                                    <li>Slowly pour in fresh milk. Stirring with an eggbeater is less likely to agglomerate.</li>
+                                                    <li>Pour in all the fresh cream. Stir the cheese until it boils.</li>
+                                                </span>
                                             </Typography>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
+                                </Grid>
+                                <Grid item xs={12} sm={12} style={{ textAlign: 'center' }} >
+                                    <Button variant="contained" href="#About" style={{ padding: '10px', margin: '10px' }}>
+                                        BACK
+                                    </Button>
                                 </Grid>
                             </Grid>
 
