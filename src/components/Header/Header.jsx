@@ -43,7 +43,7 @@ const Header = (props) => {
 		history.push(route.path);
 	};
 	return (
-		<header>
+		<header >
 			<img src={img} style={{ width: '100%' }} />
 			<AppBar position="static">
 				<Grid item xs={12}>
