@@ -26,17 +26,14 @@ const useStyles = makeStyles(them => ({
         fontSize: '18px',
         color: '#fff',
         margin: '1px'
-
     },
     size: {
         display: 'flex',
         justifyContent: 'space-around',
         fontSize: '18px',
         color: '#ccc',
-
     },
     formControl: {
-
         minWidth: 200,
     },
 }))
@@ -45,11 +42,11 @@ const Cart = {
     size: ["XS", "S", "M", "L", "XL"],
     number: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     colors:
-        [{ color: "red", chinese: '紅' },
-        { color: "purple", chinese: '紫' },
-        { color: "yellow", chinese: '黃' },
-        { color: "blue", chinese: '藍' },
-        { color: "green", chinese: '綠' }
+        [{ color: "floralwhite", chinese: '米白', id: 'pic01' },
+        { color: "darkgrey", chinese: '麻灰', id: 'pic02' },
+        { color: "darkred", chinese: '暗紅', id: 'pic03' },
+        { color: "darkolivegreen", chinese: '深綠', id: 'pic04' },
+        { color: "steelblue", chinese: '藏青', id: 'pic05' }
         ],
 }
 const ProductContemt = {
@@ -58,6 +55,12 @@ const ProductContemt = {
     discount: [89, 79],    //總價折扣數
     commodity: ["無側縫圓領背心-男", "城市印花T恤-男", "無側縫V領T恤-男", "牛仔長袖襯衫-男"]
 }
+
+const imageUrl = "./img/picColor/pic01.jpg"
+
+
+
+
 
 const ShoppingCart = () => {
     // 一件 199元 , 3件89折 , 5件79折
@@ -83,9 +86,21 @@ const ShoppingCart = () => {
     }
     const colorOnClick = (e) => {
         let color = e.target.name
+
+
+
         setselectColor(color)
         Loger("color : " + color)
+
+        let pic = document.querySelector('#picChangeBlock');
+        let n = e.target.id;
+        pic.src = "./img/picColor/" + n + ".jpg";
+        console.log(n)
+
+
+
     }
+
 
     //購物車按鈕
     const shoppingcartOnClick = () => {
@@ -151,119 +166,129 @@ const ShoppingCart = () => {
         return
     }
 
+
+
+
+
+
+
+
+
+
     return (
-        <div>
+        <div style={{ padding: '30px 0' }}>
+            <CssBaseline />
+            <Container maxWidth="sm" style={{ backgroundColor: '#fff' }} >
 
+                <div className={classes.root}>
+                    <h3>**購物車測試</h3>
+                    <Grid item xs={12} sm={12} >
 
-            <React.Fragment>
-                <CssBaseline />
-                <Container maxWidth="sm" style={{ backgroundColor: '#fff' }} >
-
-                    <div className={classes.root}>
-                        <h3>**購物車測試</h3>
-                        <Grid item xs={12} sm={12} >
-
-                            <Grid item xs={12}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <div>
-                                        <h4>{ProductContemt.commodity[3]}   </h4>
-                                    </div>
-                                    <div >
-                                        <s style={{ fontSize: '14px' }}>
-                                            $ {ProductContemt.price[1]}
-                                        </s>
-                                        <h4 style={{ color: 'red' }}>NT$:
-                                            {ProductContemt.price[0]}
-                                        </h4>
-                                    </div>
+                        <Grid item xs={12}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <div>
+                                    <h4>{ProductContemt.commodity[3]}   </h4>
                                 </div>
-                                <hr />
-                                <h5>
-                                    {ProductContemt.discountnumber[1]} 件
+                                <div >
+                                    <s style={{ fontSize: '14px' }}>
+                                        $ {ProductContemt.price[1]}
+                                    </s>
+                                    <h4 style={{ color: 'red' }}>NT$:
+                                            {ProductContemt.price[0]}
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr />
+                            <h5>
+                                {ProductContemt.discountnumber[1]} 件
                                     {ProductContemt.discount[0]} 折
                                     {ProductContemt.discountnumber[2]} 件
                                     {ProductContemt.discount[1]} 折
                                 </h5>
-                            </Grid>
-                            <Grid item xs={12} sm={12} >
-                                <h5>Size: </h5>
-                                <div className={classes.size}>
-                                    {
-                                        Cart.size.map((item, index) => {
-                                            return <a
-                                                className={classes.a}
-                                                onClick={sizeOnClick}
-                                                name={item}
-                                                key={index}
-                                                style={{ textDecoration: 'none' }}>{item}</a>
-                                        })
-                                    }
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} sm={12} >
-                                <h5>QTY : </h5>
-                                <div className={classes.size}>
-                                    <select value={selectNumber} onChange={handlerChangeNumber} style={{ width: '80%', height: '30px' }} >
-                                        {
-                                            Cart.number.map((item, index) => {
-                                                return <option value={item} key={index}>{item}</option>
-                                            })
-                                        }
-                                    </select>
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} sm={12} >
-                                <h5>Color : </h5>
-                                <div className={classes.size}>
-                                    {
-                                        Cart.colors.map((item, index) => {
-                                            const { color, chinese } = item
-                                            return <a className={classes.a}
-                                                onClick={colorOnClick}
-                                                style={{ backgroundColor: `${color}`, textDecoration: 'none' }}
-                                                name={chinese}
-                                                key={index}></a>
-                                        })
-                                    }
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-around', margin: '30px 0' }}>
-                                <h5>Size : {selectSize}</h5>
-                                <h5>QTY : {selectNumber}</h5>
-                                <h5>Color : {selectColor}</h5>
-                            </Grid>
-
-                            <div style={{ display: 'flex', justifyContent: "space-between " }}>
-                                <div>
-                                    <Button variant="contained" color="primary" onClick={shoppingcartOnClick}
-                                        style={{ display: 'block', }}
-                                    >
-                                        <span className={classes.btnP}>加入購物車  </span>
-                                    </Button>
-                                </div>
-                                <div style={{ display: 'flex', justifyContent: " flex-end" }}>
-                                    <Button variant="contained" color="primary" onClick={shoppingcartClearOnClick}
-                                        style={{ display: 'block', }}>
-                                        <span className={classes.btnP}>清除購物車  </span>
-                                        {/* <LocalGroceryStoreOutlinedIcon /> */}
-                                    </Button>
-                                    <Button variant="contained" color="secondary" onClick={CheckoutBTN} style={{ display: 'block' }}>
-                                        <span className={classes.btnP}>結帳  </span>
-                                        <MonetizationOnIcon />
-                                    </Button>
-                                </div>
-                            </div>
-                            <hr />
-                            <Grid item xs={12} >
-                                <p>購物車內容:{carContent}  </p>
-                            </Grid>
-                            <Grid item xs={12} >
-                                <h2> 金額$: {total} 元</h2>
-                            </Grid>
                         </Grid>
-                    </div >
-                </Container>
-            </React.Fragment>
+                        <Grid item xs={12} sm={12} >
+                            <h5>Size: </h5>
+                            <div className={classes.size}>
+                                {
+                                    Cart.size.map((item, index) => {
+                                        return <a
+                                            className={classes.a}
+                                            onClick={sizeOnClick}
+                                            name={item}
+                                            key={index}
+                                            style={{ textDecoration: 'none' }}>{item}</a>
+                                    })
+                                }
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={12} >
+                            <h5>QTY : </h5>
+                            <div className={classes.size}>
+                                <select value={selectNumber} onChange={handlerChangeNumber} style={{ width: '80%', height: '30px' }} >
+                                    {
+                                        Cart.number.map((item, index) => {
+                                            return <option value={item} key={index}>{item}</option>
+                                        })
+                                    }
+                                </select>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={12} >
+                            <h5>Color : </h5>
+                            <div className={classes.size}>
+                                {
+                                    Cart.colors.map((item, index) => {
+                                        const { color, chinese, id } = item
+                                        return <a className={classes.a} id={id}
+                                            onClick={colorOnClick}
+                                            style={{ backgroundColor: `${color}`, textDecoration: 'none' }}
+                                            name={chinese}
+                                            key={index}></a>
+                                    })
+                                }
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-around', margin: '30px 0' }}>
+                            <h5>Size : {selectSize}</h5>
+                            <h5>QTY : {selectNumber}</h5>
+                            <h5>Color : {selectColor}</h5>
+                        </Grid>
+
+                        <Grid item xs={12} style={{ display: 'inline-block', textAlign: 'center' }} >
+                            <img src={imageUrl} style={{ width: '100%', padding: '10px', marginBottom: '10px', paddingBottom: '16px' }} id="picChangeBlock"></img>
+                        </Grid>
+
+
+                        <div style={{ display: 'flex', justifyContent: "space-between " }}>
+                            <div>
+                                <Button variant="contained" color="primary" onClick={shoppingcartOnClick}
+                                    style={{ display: 'block', }}
+                                >
+                                    <span className={classes.btnP}>加入購物車  </span>
+                                </Button>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: " flex-end" }}>
+                                <Button variant="contained" color="primary" onClick={shoppingcartClearOnClick}
+                                    style={{ display: 'block', }}>
+                                    <span className={classes.btnP}>清除購物車  </span>
+                                    {/* <LocalGroceryStoreOutlinedIcon /> */}
+                                </Button>
+                                <Button variant="contained" color="secondary" onClick={CheckoutBTN} style={{ display: 'block' }}>
+                                    <span className={classes.btnP}>結帳  </span>
+                                    <MonetizationOnIcon />
+                                </Button>
+                            </div>
+                        </div>
+                        <hr />
+                        <Grid item xs={12} >
+                            <p>購物車內容:{carContent}  </p>
+                        </Grid>
+                        <Grid item xs={12} >
+                            <h2> 金額$: {total} 元</h2>
+                        </Grid>
+                    </Grid>
+                </div >
+            </Container>
 
         </div >
     )
